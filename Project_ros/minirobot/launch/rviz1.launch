@@ -1,0 +1,13 @@
+<launch>
+  <param name="robot_description" textfile="$(find robot_urdf)/urdf/urdf1.urdf"/>
+  <arg name="rvizconfig" default="$(find urdf_tutorial)/rviz/urdf.rviz" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"/>
+  <node name="GUI_new1_1" pkg="Project_ros" type="GUI_new1_1.py"/>
+  <node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" />
+  <node name="serial_node"        pkg="rosserial_python"      type="serial_node.py">
+        <param name="port"              type="string"               value="/dev/ttyUSB0"/>
+        <param name="baud"              type="int"                  value="57600"/>
+  </node>
+
+</launch>
