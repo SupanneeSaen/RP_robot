@@ -15,7 +15,6 @@ Servo servoencoder;
 const int PINClk =2;
 const int PINDT =3;
 
-const int SW_PIN = 4;
 const int homePosition = 0; 
 const int stepValue = 5;
 const int servo_encoder = 9;
@@ -58,10 +57,7 @@ ros::Subscriber<std_msgs::Float64> encoderrun("Encoder_Run", &encoder_servo);
 //Subscriber Potentiometer Angle for servo
 ros::Subscriber<std_msgs::Float64> potenrun("Poten_Run", &poten_servo);
 
-
-
 void setup() {
-  pinMode(SW_PIN,INPUT_PULLUP);
   servoencoder.attach(servo_encoder);  
 
   //potentiometer
